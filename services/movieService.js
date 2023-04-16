@@ -21,5 +21,11 @@ module.exports = {
         );
 
         return response.data.results[0];
+    },
+
+    async getMovieDetails(movieId) {
+        const response = await axios.get(`${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=en-US`);
+
+        return response.data;
     }
 };

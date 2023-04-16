@@ -17,5 +17,13 @@ module.exports = {
         const popular = await movieService.getPopularMovies();
 
         res.render('pages/popular', { movies: popular });
+    },
+
+    async findMovieDetails(req, res) {
+        const { movieId } = req.params;
+
+        const details = await movieService.getMovieDetails(movieId);
+        console.log('details is', details);
+        res.render('pages/movieDetails', { details });
     }
 };
