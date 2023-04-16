@@ -21,5 +21,5 @@ module.exports = {
         );
 
         return response.data.results[0];
-    },
+    }
 };

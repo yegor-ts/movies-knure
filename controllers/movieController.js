@@ -1,7 +1,7 @@
 const movieService = require('../services/movieService');
 
 module.exports = {
-    getIndex(req, res) {
+    getIndex(_, res) {
         res.render('pages/index', { movie: null });
     },
 
@@ -11,5 +11,11 @@ module.exports = {
 
 
         res.render('pages/index', { movie: movie });
+    },
+
+    async findPopularMovies(req, res) {
+        const popular = await movieService.getPopularMovies();
+
+        res.render('pages/popular', { movies: popular });
     }
 };
