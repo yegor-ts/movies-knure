@@ -45,3 +45,7 @@ TMDB_API_KEY=
 ![Top Rated](/screenshots/top-rated.png)
 
 **Screenshot 5** - On Top Rated page application displays list of movies in rating order.
+
+![Not Found](/screenshots/not-found.png)
+
+**Screenshot 6** - Not Found page.
