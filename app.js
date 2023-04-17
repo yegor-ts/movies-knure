@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const movieController = require('./controllers/movieController');
+const movieRoutes = require('./routes/movie');
 
 dotenv.config();
 
@@ -14,11 +14,7 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-app.get('/', movieController.getIndex);
-app.post('/', movieController.findMovie);
-app.get('/popular', movieController.findPopularMovies);
-app.get('/movie/:movieId', movieController.findMovieDetails);
-app.get('/top-rated', movieController.findTopRated);
+app.use(movieRoutes);
 
 app.listen(PORT, () => {
     console.log(`App started on port ${PORT}`);
