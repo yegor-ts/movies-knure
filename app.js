@@ -17,7 +17,8 @@ app.set('view engine', 'ejs');
 app.get('/', movieController.getIndex);
 app.post('/', movieController.findMovie);
 app.get('/popular', movieController.findPopularMovies);
-app.get('/:movieId', movieController.findMovieDetails);
+app.get('/movie/:movieId', movieController.findMovieDetails);
+app.get('/top-rated', movieController.findTopRated);
 
 app.listen(PORT, () => {
     console.log(`App started on port ${PORT}`);

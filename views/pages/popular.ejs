@@ -1,9 +1,9 @@
 <%- include('../partials/head') %>
 <body>
   <%- include('../partials/navbar') %>
-  <% if (movies) { %>
+  <% if (popular) { %>
     <div class="row row-cols-1 row-cols-md-4 g-4">
-    <% for (let movie of movies) { %>
+    <% for (let movie of popular) { %>
         <div class="col">
             <div class="card m-5" style="width: 25rem; height: 63rem">
               <img src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path%>" class="card-img-top" alt="<%=movie.title%>">
@@ -11,7 +11,7 @@
                 <h5 class="card-title"><%=movie.title%></h5>
                 <p class="card-text"><%=movie.overview%></p>
                 <p><strong>TMDB Rating: </strong><%=movie.vote_average%> &#11088</p>
-                <a href="/<%=movie.id%>" class="btn btn-info btn-sm">See details</a>
+                <a href="/movie/<%=movie.id%>" class="btn btn-info btn-sm">See details</a>
               </div>
             </div>
           </div>

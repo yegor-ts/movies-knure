@@ -8,24 +8,30 @@ const { TMDB_API_KEY } = process.env;
 
 module.exports = {
     async getPopularMovies() {
-        const response = await axios.get(
+        const { data } = await axios.get(
             `${BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&language=en-US&page=1`
         );
 
-        return response.data.results;
+        return data.results;
     },
 
     async getMovieByTitle(title) {
-        const response = await axios.get(
+        const { data } = await axios.get(
             `${BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&query=${title}`
         );
 
-        return response.data.results[0];
+        return data.results[0];
     },
 
     async getMovieDetails(movieId) {
-        const response = await axios.get(`${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=en-US`);
+        const { data } = await axios.get(`${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}&language=en-US`);
 
-        return response.data;
+        return data;
+    },
+
+    async getTopRated() {
+        const { data } = await axios.get(`${BASE_URL}/movie/top_rated?api_key=${TMDB_API_KEY}&language=en-us&page=1`);
+
+        return data.results;
     }
 };
